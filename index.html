@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Ivy-Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./images/logo.jpg" alt="" width="150px">
+        </div>
+        <div class="menu">
+            <li class="menu1"><a href="">NỮ</a>
+                <ul class="sub-menu">
+                    <li><a href="">Hàng mới về</a></li>
+                    <li><a href="">Collection</a></li>
+                    <li><a href="">Áo</a>
+                        <ul>
+                            <li><a href="">Áo sơ mi</a></li>
+                            <li><a href="">Áo thun</a></li>
+                            <li><a href="">Áo vest</a></li>
+                            <li><a href="">Áo khoác</a></li>
+                            <li><a href="">Áo len</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Quần</a>
+                        <ul>
+                            <li><a href="">Quẩn Jean</a></li>
+                            <li><a href="">Quẩn dài</a></li>
+                            <li><a href="">Quẩn kaki</a></li>
+                            <li><a href="">Quần thun</a></li>
+                        </ul>
+                    </li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>
+            </li>
+            <li class="menu1"><a href="">NAM</a></li>
+            <li class="menu1"><a href="">TRẺ EM</a></li>
+            <li class="menu1"><a href="">SALE</a></li>
+            <li class="menu1"><a href="">KHẨU TRANG - BỘ BẢO HỘ</a></li>
+            <li class="menu1"><a href="">BỘ SƯU TẬP</a></li>
+            <li class="menu1"><a href="">THÔNG TIN</a></li>
+        </div>
+        <div class="others">
+            <li><input placeholder="Tìm kiếm" type="text"><i class="fas fa-search"></i></li>
+            <li><a href="" class="fa fa-paw"></a></li>
+            <li><a href="" class="fa fa-user"></a></li>
+            <li><a href="" class="fa fa-shopping-bag"></a></li>
+        </div>
+    </header>
+    <section id="slider">
+        <div class="aspect-ratio-169">
+            <img src="./images/baner.jpg" alt="">
+            <img src="./images/baner1.jpg" alt="">
+            <img src="./images/baner2.jpg" alt="">
+            <img src="./images/baner3.jpg" alt="">
+        </div>
+        <div class="dot-container">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </section>
+    <!--app-container-->
+    <section class="app-container">
+        <p>Tải ứng dụng IVY moda</p>
+        <div class="app-google">
+            <a href=""><img src="./images/appstore.jpg" alt=""></a>
+            <a href=""><img src="./images/googleplay.jpg" alt=""></a>
+        </div>
+        <p>Nhận bản tin IVY moda</p>
+        <input type="text" placeholder="Nhập email của bạn ....">
+    </section>
+    <!--footer-->
+    <div class="footer-top">
+        <li><a href=""><img src="./images/banquyen.jpg"></a></li>
+        <li><a href=""><img src="./images/congthuong.jpg"></a></li>
+        <li><a href="">Giới thiệu</a></li>
+        <li><a href="">Liên hệ</a></li>
+        <li><a href="">Tuyển dụng</a></li>
+        <li>
+            <a href="" class="fab fa-facebook"></a>
+            <a href="" class="fab fa-youtube"></a>
+            <a href="" class="fab fa-twitter"></a>
+        </li>
+    </div>
+    <div class="footer-center">
+        <p>
+            Công ty Cổ phần Dự Kim với số đăng ký kinh doanh: 0105777650 <br>
+            Địa chỉ đăng ký: Tổ dân phố Tháp, P.Đại Mỗ, Q.Nam Từ Liêm, TP.Hà Nội, Việt Nam
+        <br>
+            Số điện thoại: <span>0205 2222/ 090 589 8683</span> <br>
+            Email: cskh@ivy.com.vn
+       </p>
+       <hr>
+    </div>
+   <div class="footer-bottom">
+        ©IVYmoda All rights reserved
+   </div>
+
+</body>
+<script>
+    const imgPositipon = document.querySelectorAll('.aspect-ratio-169 img');
+    const imgContainer = document.querySelector('.aspect-ratio-169');
+    let imgNumber = imgPositipon.length;
+    let index = 0;
+    const dotItems = document.querySelectorAll(".dot");
+    imgPositipon.forEach(function(image,index) {
+        image.style.left = index*100 + '%';
+        dotItems[index].addEventListener("click",function(){
+            slider (index);
+        });
+    });
+    function imgSlide(){
+        index++;
+        if(index >= imgNumber){
+            index = 0;
+        }
+        slider (index);
+    }
+    function slider (index){
+        imgContainer.style.left ="-" +index*100+ "%";
+        const dotActive = document.querySelector(".active");
+        dotActive.classList.remove("active");
+        dotItems[index].classList.add("active");
+    }
+    setInterval(imgSlide, 5000);
+</script>
+</html>
