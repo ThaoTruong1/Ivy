@@ -11,7 +11,7 @@ window.addEventListener("scroll",function(){
 })
 /////---------------Menu slider-cartegory----
 const itemsliderbar = document.querySelectorAll(".cartegory-left-li");
-itemsliderbar.forEach(function(menu,index){
+itemsliderbar.forEach(function(menu, index){
     menu.addEventListener("click",function(){
         menu.classList.toggle("block");
     })
